@@ -8,6 +8,24 @@
 </head>
 <body>
     <script>
+        function getComputerChoice() {
+            let choiceNum = Math.floor(Math.random() * 3) //Random number (0, 1 or 2)
+
+            if(choiceNum===0) {
+                return 'Rock'
+            }
+
+            else if(choiceNum===1) {
+                return 'Paper'
+            }
+
+            else if(choiceNum===2) {
+                return 'Scissors'
+            }
+        }
+
+        let compChoice = getComputerChoice()
+        console.log(compChoice)
 
     </script>
 
