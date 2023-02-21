@@ -24,8 +24,38 @@
             }
         }
 
+        function playRound(comp, player) {
+            //Draw conditions
+            if (comp.toLowerCase() === player.toLowerCase()) {
+                return "Draw"
+            }
+            //Rock Wins
+            else if(comp.toLowerCase() === 'rock' && player.toLowerCase() === 'scissors') {
+                return "You lose! Rock beats scissors."
+            }
+            else if(comp.toLowerCase() === 'scissors' && player.toLowerCase() === 'rock') {
+                return "You win! Rock beats scissors."
+            }
+            //Paper Wins
+            else if(comp.toLowerCase() === 'paper' && player.toLowerCase() === 'rock') {
+                return "You lose! Paper beats rock."
+            }
+            else if(comp.toLowerCase() === 'rock' && player.toLowerCase() === 'paper') {
+                return "You win! Paper beats rock."
+            }
+            //Scissors Wins
+            else if(comp.toLowerCase() === 'scissors' && player.toLowerCase() === 'paper') {
+                return "You lose! Scissors beat paper."
+            }
+            else if(comp.toLowerCase() === 'paper' && player.toLowerCase() === 'scissors') {
+                return "You win! Scissors beat paper."
+            }
+        }
+
         let compChoice = getComputerChoice()
-        console.log(compChoice)
+        let playerChoice = prompt("Rock, Paper or Scissors?")
+
+        console.log(compChoice, playerChoice, playRound(compChoice, playerChoice))
 
     </script>
 
