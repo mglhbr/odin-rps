@@ -1,0 +1,1 @@
+Rock, Paper, Scissors game to get a feeling of JS!
