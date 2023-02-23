@@ -5,88 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors!</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js" defer></script>
 </head>
 
 <body>
-    <script>
-        function getComputerChoice() {
-            let choiceNum = Math.floor(Math.random() * 3) //Random number (0, 1 or 2)
-
-            if(choiceNum===0) {
-                return 'Rock'
-            }
-
-            else if(choiceNum===1) {
-                return 'Paper'
-            }
-
-            else if(choiceNum===2) {
-                return 'Scissors'
-            }
-        }
-
-        function playRound(comp, player) {
-            //Draw conditions
-            if (comp.toLowerCase() === player.toLowerCase()) { //toLowerCase() --> so capitals are disregarded
-                return "Draw"
-            }
-            //Rock Wins
-            else if(comp.toLowerCase() === 'rock' && player.toLowerCase() === 'scissors') {
-                return "You lose! Rock beats scissors."
-            }
-            else if(comp.toLowerCase() === 'scissors' && player.toLowerCase() === 'rock') {
-                return "You win! Rock beats scissors."
-            }
-            //Paper Wins
-            else if(comp.toLowerCase() === 'paper' && player.toLowerCase() === 'rock') {
-                return "You lose! Paper beats rock."
-            }
-            else if(comp.toLowerCase() === 'rock' && player.toLowerCase() === 'paper') {
-                return "You win! Paper beats rock."
-            }
-            //Scissors Wins
-            else if(comp.toLowerCase() === 'scissors' && player.toLowerCase() === 'paper') {
-                return "You lose! Scissors beat paper."
-            }
-            else if(comp.toLowerCase() === 'paper' && player.toLowerCase() === 'scissors') {
-                return "You win! Scissors beat paper."
-            }
-        }
-
-        function game() {
-            let playerPts = 0 //Variables for counting-system
-            let compuPts = 0
-
-            for(let i = 0; i<5; i++) {
-                let compChoice = getComputerChoice()
-                let playerChoice = prompt("Rock, Paper or Scissors?")
-                console.log(playerChoice, playRound(compChoice, playerChoice))
-
-                //counting System
-                if(playRound(compChoice, playerChoice) === "You win! Paper beats rock." || playRound(compChoice, playerChoice) ==="You win! Rock beats scissors." || playRound(compChoice, playerChoice) ==="You win! Scissors beat paper.") {
-                    playerPts++
-                }
-                if(playRound(compChoice, playerChoice) === "You lose! Paper beats rock." || playRound(compChoice, playerChoice) ==="You lose! Rock beats scissors." || playRound(compChoice, playerChoice) ==="You lose! Scissors beat paper.") {
-                    compuPts++
-                }
-            }
-
-            if(playerPts>compuPts) {
-                console.log("You won! The game finished: ", playerPts, " to ", compuPts)
-            }
-            else if(playerPts<compuPts) {
-                console.log("You lost! The game finished: ", playerPts, " to ", compuPts)
-            }
-
-            else if(playerPts==compuPts) {
-                console.log("It's a draw! The game finished: ", playerPts, " to ", compuPts)
-            }
-        }
-        
-        game()
-    </script>
-
     <h1>Rock, Paper, Scissors!</h1>
-    <p>Inspect the website and play in console! :)</p>
+    <div>
+        <input type="button" value="rock"></input>
+        <input type="button" value="paper"></input>
+        <input type="button" value="scissors"></input>
+      </div>
+      <div id="result"></div>
 </body>
 </html>
